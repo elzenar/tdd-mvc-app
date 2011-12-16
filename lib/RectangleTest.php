@@ -5,6 +5,9 @@ require_once 'Rectangle.php';
 
 class RectangleTest extends PHPUnit_Framework_TestCase {
 
+    const NEGATIVE_VALUE_EXCEPTION = 'NegativeValueException';
+    const NULL_VALUE_EXCEPTION = 'NullValueException';
+
     function testCalculateSquare(){
         $rectangle = new Rectangle(5, 10);
         $square = $rectangle->calculateSquare();
@@ -23,8 +26,8 @@ class RectangleTest extends PHPUnit_Framework_TestCase {
      * @dataProvider providerDimentions
      *
      */
-    function testWrongValues($w, $h, $e){
-        $this->setExpectedException('Exception', $e);
+    function testWrongValues($w, $h, $e_type, $e_massage){
+        $this->setExpectedException($e_type, $e_massage);
         $rectangle = new Rectangle($w, $h);
     }
 
@@ -34,14 +37,14 @@ class RectangleTest extends PHPUnit_Framework_TestCase {
     public function providerDimentions()
     {
         return array(
-          array(0, 0, 'Values should be more then 0'),
-          array(0, 1, 'Values should be more then 0'),
-          array(1, 0, 'Values should be more then 0'),
-          array(-1, 1, 'Negative values are forbidden'),
-          array(1, -1, 'Negative values are forbidden'),
-          array(null, null, 'Values should not be empty'),
-          array(10, null, 'Values should not be empty'),
-          array(null, 20, 'Values should not be empty'),
+          array(0, 0, self::NULL_VALUE_EXCEPTION, 'Values should be more then 0'),
+          array(0, 1, self::NULL_VALUE_EXCEPTION, 'Values should be more then 0'),
+          array(1, 0, self::NEGATIVE_VALUE_EXCEPTION, 'Values should be more then 0'),
+          array(-1, 1, self::NEGATIVE_VALUE_EXCEPTION, 'Negative values are forbidden'),
+          array(1, -1, self::NEGATIVE_VALUE_EXCEPTION, 'Negative values are forbidden'),
+          array(null, null, self::NULL_VALUE_EXCEPTION, 'Values should not be empty'),
+          array(10, null, self::NULL_VALUE_EXCEPTION, 'Values should not be empty'),
+          array(null, 20, self::NULL_VALUE_EXCEPTION, 'Values should not be empty'),
         );
     }
 }
