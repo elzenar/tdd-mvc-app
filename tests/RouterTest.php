@@ -19,7 +19,7 @@ class RouterTest extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new Router;
+       // $this->object = new Router($_GET['uri']);
     }
 
     /**
@@ -36,10 +36,9 @@ class RouterTest extends PHPUnit_Framework_TestCase
      */
     public function testGetController()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+    	$uri = '/user/';
+        $router = new Router($uri);
+        $this->assertEquals('user', $router->getController(), "testGetController Fail");
     }
 
     /**
@@ -48,10 +47,9 @@ class RouterTest extends PHPUnit_Framework_TestCase
      */
     public function testGetAction()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+        $uri = '/user/show/';
+        $router = new Router($uri);
+        $this->assertEquals('show', $router->getAction(), "testGetAction Fail");
     }
 
     /**
@@ -60,10 +58,12 @@ class RouterTest extends PHPUnit_Framework_TestCase
      */
     public function testGetArgs()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+        $uri = '/index/index/id/2/';
+        $router = new Router($uri);
+        $args = array('id' => '2');
+        $this->assertEquals($args, $router->getArgs(), "testGetArgs Fail");
+        
+        $router->dispatch();
     }
 }
 ?>
