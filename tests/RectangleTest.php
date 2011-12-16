@@ -32,7 +32,9 @@ class RectangleTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException RectangleException
+     * @expectedExceptionMessage Invalid param
      * @dataProvider providerException
+     * @param $aWidth
      */
     public function testSetWidthException($aWidth)
     {
@@ -41,7 +43,9 @@ class RectangleTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException RectangleException
+     * @expectedExceptionMessage Invalid param
      * @dataProvider providerException
+     * @param $aHeight
      */
     public function testSetHeightException($aHeight)
     {
@@ -88,7 +92,7 @@ class RectangleTest extends PHPUnit_Framework_TestCase
         $this->object->setHeight($height);
         $this->assertEquals($height, $this->object->getHeight());
 
-        $this->assertEqual(($width + $height) * 2, $this->object->getCalcPerimeter());
+        $this->assertEquals(($width + $height) * 2, $this->object->getCalcPerimeter());
     }
 }
 ?>
