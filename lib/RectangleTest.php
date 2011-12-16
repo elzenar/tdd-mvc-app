@@ -41,6 +41,9 @@ class RectangleTest extends PHPUnit_Framework_TestCase {
           array(1, 0, 'Values should be more then 0'),
           array(-1, 1, 'Negative values are forbidden'),
           array(1, -1, 'Negative values are forbidden'),
+          array(null, null, 'Values should be empty'),
+          array(10, null, 'Values should be empty'),
+          array(null, 20, 'Values should be empty'),
         );
     }
 }
