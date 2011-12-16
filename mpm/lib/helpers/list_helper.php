@@ -81,9 +81,9 @@ class MpmListHelper
         $file_timestamps = MpmListHelper::getTimestampArray($files);
         if (MpmDbHelper::getMethod() == MPM_METHOD_PDO)
         {
+            $pdo = MpmDbHelper::getPdoObj();
             if (count($files) > 0)
             {
-                $pdo = MpmDbHelper::getPdoObj();
                 $pdo->beginTransaction();
                 try
                 {
