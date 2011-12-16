@@ -4,6 +4,8 @@ require_once 'Circle.php';
 class CircleTest extends PHPUnit_Framework_TestCase
 {
 
+    const CIRCLE_EXCEPTION = 'CircleException';
+
     /**
      * @test
      * @dataProvider rectangleDataProvider
@@ -25,7 +27,7 @@ class CircleTest extends PHPUnit_Framework_TestCase
      * @test
      */
     public function squareNullRadius() {
-        $this->setExpectedException('Exception','Circle radius should not be null');
+        $this->setExpectedException(self::CIRCLE_EXCEPTION, 'Circle radius should not be null');
         $circle = new Circle(null);
         $circle->square();
     }
@@ -34,7 +36,7 @@ class CircleTest extends PHPUnit_Framework_TestCase
      * @test
      */
     public function squareRadiusLessThenZero() {
-        $this->setExpectedException('Exception','Circle radius should not be less then 0');
+        $this->setExpectedException(self::CIRCLE_EXCEPTION, 'Circle radius should not be less then 0');
         $circle = new Circle(-1);
         $circle->square();
     }
@@ -62,7 +64,7 @@ class CircleTest extends PHPUnit_Framework_TestCase
      * @test
      */
     public function perimeterNullRadius() {
-        $this->setExpectedException('Exception','Circle radius should not be null');
+        $this->setExpectedException(self::CIRCLE_EXCEPTION, 'Circle radius should not be null');
         $circle = new Circle(null);
         $circle->perimeter();
     }
@@ -71,7 +73,7 @@ class CircleTest extends PHPUnit_Framework_TestCase
      * @test
      */
     public function perimeterRadiusLessThenZero() {
-        $this->setExpectedException('Exception','Circle radius should not be less then 0');
+        $this->setExpectedException(self::CIRCLE_EXCEPTION, 'Circle radius should not be less then 0');
         $circle = new Circle(-1);
         $circle->perimeter();
     }
