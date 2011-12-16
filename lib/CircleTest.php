@@ -48,7 +48,7 @@ class CircleTest extends PHPUnit_Framework_TestCase
     public function perimeterValid($radius, $expectedPerimeter)
     {
         $circle = new Circle($radius);
-        $this->assertEquals($expectedPerimeter, $circle->square());
+        $this->assertEquals($expectedPerimeter, $circle->perimeter());
     }
 
     public function perimeterValidDataProvider()
