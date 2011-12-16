@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<dataset>
+    <session id="1" session_id="5e94b2b17312cd4403e2c45c81878d93" data="" />
+    <session id="2" session_id="exist_session_id" data='O:17:"Models\TestObject":1:{s:22:" Models\TestObject _id";i:12;}' />
+</dataset>
