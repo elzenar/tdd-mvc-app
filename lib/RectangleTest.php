@@ -26,8 +26,6 @@ class RectangleTest extends PHPUnit_Framework_TestCase {
     function testWrongValues($w, $h, $e){
         $this->setExpectedException('Exception', $e);
         $rectangle = new Rectangle($w, $h);
-        $square = $rectangle->calculateSquare();
-
     }
 
     /**
@@ -41,9 +39,9 @@ class RectangleTest extends PHPUnit_Framework_TestCase {
           array(1, 0, 'Values should be more then 0'),
           array(-1, 1, 'Negative values are forbidden'),
           array(1, -1, 'Negative values are forbidden'),
-          array(null, null, 'Values should be empty'),
-          array(10, null, 'Values should be empty'),
-          array(null, 20, 'Values should be empty'),
+          array(null, null, 'Values should not be empty'),
+          array(10, null, 'Values should not be empty'),
+          array(null, 20, 'Values should not be empty'),
         );
     }
 }
