@@ -2,3 +2,7 @@
 nbproject
 app/config.php
 build
+/.settings
+/.build
+/.project
+
