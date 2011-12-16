@@ -1,5 +1,7 @@
 <?php
 
+require_once('../app/Circle.php');
+
 class TestCircle extends PHPUnit_Framework_TestCase
 {
     protected $object;
@@ -33,14 +35,23 @@ class TestCircle extends PHPUnit_Framework_TestCase
     /**
      * @expectedException        Exception
      * @expectedExceptionMessage Invalid radius
+     * @dataProvider invalidRadiusData
      */
-    public function testZeroRadius()
+    public function testInvalidRadius($radius)
     {
         //Arrange
-        $this->object->radius = 0;
+        $this->object->radius = $radius;
         //Act
         $this->object->calcSquare();
         //Assert
+    }
+
+    public function invalidRadiusData()
+    {
+        return array(
+            array(0),
+            array(-1)
+        );
     }
 
 
