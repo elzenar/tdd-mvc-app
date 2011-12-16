@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<dataset>
+    <categories id="1" name="Regular costs" />
+    <categories id="2" name="Hobby" />
+    <categories id="3" name="My cat" />
+</dataset>
