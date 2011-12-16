@@ -9,7 +9,7 @@ class TestCircle extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->object = new Circle();
-        $this->object->radius = 10;
+        $this->object->setRadius(10);
     }
 
 
@@ -27,9 +27,9 @@ class TestCircle extends PHPUnit_Framework_TestCase
     {
         //Arrange
         //Act
-        $result = $this->object->calcSquare();
+        $result = $this->object->calcPerimeter();
         //Assert
-        $this->assertEquals(62.8, $result);
+        $this->assertTrue((string) 62.8 == (string) $result);
     }
 
     /**
@@ -39,11 +39,8 @@ class TestCircle extends PHPUnit_Framework_TestCase
      */
     public function testInvalidRadius($radius)
     {
-        //Arrange
-        $this->object->radius = $radius;
         //Act
-        $this->object->calcSquare();
-        //Assert
+        $this->object->setRadius($radius);
     }
 
     public function invalidRadiusData()
