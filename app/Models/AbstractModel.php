@@ -7,7 +7,7 @@ namespace Models;
  * Time: 13:02
  * To change this template use File | Settings | File Templates.
  */
-class AbstractModel
+abstract class AbstractModel
 {
 
 }

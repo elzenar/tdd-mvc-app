@@ -19,6 +19,10 @@ class MyGuestbookTest extends PHPUnit_Extensions_Database_TestCase
      */
     public function getDataSet()
     {
+        $ds1 = $this->createFlatXmlDataSet(dirname(__FILE__).'/_files/guestbook-seed.xml');
+        $ds2 = $this->createFlatXmlDataSet(dirname(__FILE__).'/_files/guestbook-seed.xml');
+
+        $compositeDs = new PHPUnit_Extensions_Database_DataSet_CompositeDataSet(array($ds1, $ds2));
 
         return $this->createFlatXMLDataSet(dirname(__FILE__).'/_files/guestbook-seed.xml');
     }
