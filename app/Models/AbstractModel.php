@@ -9,5 +9,21 @@ namespace Models;
  */
 abstract class AbstractModel
 {
+    protected $defaultEnv = 'default';
+
+    protected $connection;
+
+    public function getConnection()
+    {
+        if (empty($this->connection)) {
+            $this->connection = new \PDO('mysql:host=localhost;dbname=tdd_mvc_app_default',
+                                'root',
+                                '');
+        }
+        return $this->connection;
+    }
+
+
+
 
 }
