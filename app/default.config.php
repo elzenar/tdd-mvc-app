@@ -3,7 +3,7 @@ return array(
     'test' => array(
         'db' => array(
             'host' => 'localhost',
-            'db' => 'test_tdd_mvc_app',
+            'db' => 'tdd_mvc_app',
             'user' => 'root',
             'password' => ''
         )
